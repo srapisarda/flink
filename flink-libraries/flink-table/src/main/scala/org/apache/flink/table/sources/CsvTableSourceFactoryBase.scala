@@ -26,6 +26,7 @@ import org.apache.flink.table.descriptors.CsvValidator._
 import org.apache.flink.table.descriptors.FileSystemValidator.{CONNECTOR_PATH, CONNECTOR_TYPE_VALUE}
 import org.apache.flink.table.descriptors.FormatDescriptorValidator.{FORMAT_PROPERTY_VERSION, FORMAT_TYPE}
 import org.apache.flink.table.descriptors.SchemaValidator.SCHEMA
+import org.apache.flink.table.descriptors.StatisticsValidator.{STATISTICS_ROW_COUNT, STATISTICS_PROPERTY_VERSION, STATISTICS_COLUMNS}
 import org.apache.flink.table.descriptors._
 import org.apache.flink.table.factories.TableFactory
 import org.apache.flink.table.util.JavaScalaConversionUtil.toScala
@@ -58,6 +59,10 @@ abstract class CsvTableSourceFactoryBase extends TableFactory {
     properties.add(FORMAT_IGNORE_FIRST_LINE)
     properties.add(FORMAT_IGNORE_PARSE_ERRORS)
     properties.add(CONNECTOR_PATH)
+    // statistic
+    properties.add(STATISTICS_ROW_COUNT)
+    properties.add(STATISTICS_PROPERTY_VERSION)
+    properties.add(STATISTICS_COLUMNS)
     // schema
     properties.add(s"$SCHEMA.#.${DescriptorProperties.TABLE_SCHEMA_TYPE}")
     properties.add(s"$SCHEMA.#.${DescriptorProperties.TABLE_SCHEMA_NAME}")
