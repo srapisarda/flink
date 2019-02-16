@@ -51,7 +51,7 @@ import org.apache.flink.runtime.util.ExecutorThreadFactory;
 import org.apache.flink.runtime.util.Hardware;
 import org.apache.flink.runtime.util.JvmShutdownSafeguard;
 import org.apache.flink.runtime.util.LeaderRetrievalUtils;
-import org.apache.flink.runtime.util.SignalHandler;
+
 import org.apache.flink.util.AutoCloseableAsync;
 import org.apache.flink.util.ExceptionUtils;
 import org.apache.flink.util.ExecutorUtils;
@@ -272,7 +272,6 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 	public static void main(String[] args) throws Exception {
 		// startup checks and logging
 		EnvironmentInformation.logEnvironmentInfo(LOG, "TaskManager", args);
-		SignalHandler.register(LOG);
 		JvmShutdownSafeguard.installAsShutdownHook(LOG);
 
 		long maxOpenFileHandles = EnvironmentInformation.getOpenFileHandlesLimit();

@@ -1917,7 +1917,7 @@ object JobManager {
   def main(args: Array[String]): Unit = {
     // startup checks and logging
     EnvironmentInformation.logEnvironmentInfo(LOG.logger, "JobManager", args)
-    SignalHandler.register(LOG.logger)
+    //SignalHandler.register(LOG.logger)
     JvmShutdownSafeguard.installAsShutdownHook(LOG.logger)
 
     // parsing the command line arguments

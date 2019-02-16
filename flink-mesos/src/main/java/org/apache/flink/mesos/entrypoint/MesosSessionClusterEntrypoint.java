@@ -34,7 +34,6 @@ import org.apache.flink.runtime.entrypoint.component.DispatcherResourceManagerCo
 import org.apache.flink.runtime.entrypoint.component.SessionDispatcherResourceManagerComponentFactory;
 import org.apache.flink.runtime.util.EnvironmentInformation;
 import org.apache.flink.runtime.util.JvmShutdownSafeguard;
-import org.apache.flink.runtime.util.SignalHandler;
 import org.apache.flink.util.Preconditions;
 
 import org.apache.commons.cli.CommandLine;
@@ -120,7 +119,6 @@ public class MesosSessionClusterEntrypoint extends SessionClusterEntrypoint {
 	public static void main(String[] args) {
 		// startup checks and logging
 		EnvironmentInformation.logEnvironmentInfo(LOG, MesosSessionClusterEntrypoint.class.getSimpleName(), args);
-		SignalHandler.register(LOG);
 		JvmShutdownSafeguard.installAsShutdownHook(LOG);
 
 		// load configuration incl. dynamic properties

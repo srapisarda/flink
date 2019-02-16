@@ -29,7 +29,6 @@ import org.apache.flink.runtime.security.SecurityUtils;
 import org.apache.flink.runtime.taskmanager.TaskManager;
 import org.apache.flink.runtime.util.EnvironmentInformation;
 import org.apache.flink.runtime.util.JvmShutdownSafeguard;
-import org.apache.flink.runtime.util.SignalHandler;
 import org.apache.flink.util.Preconditions;
 
 import org.apache.hadoop.security.UserGroupInformation;
@@ -96,7 +95,6 @@ public class YarnTaskManagerRunnerFactory {
 			Map<String, String> envs) throws IOException {
 
 		EnvironmentInformation.logEnvironmentInfo(LOG, "YARN TaskManager", args);
-		SignalHandler.register(LOG);
 		JvmShutdownSafeguard.installAsShutdownHook(LOG);
 
 		// try to parse the command line arguments
